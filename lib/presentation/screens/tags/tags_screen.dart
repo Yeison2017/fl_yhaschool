@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TagsScreen extends StatelessWidget {
+  static const String name = 'tags_screen';
+
   const TagsScreen({super.key});
 
   @override

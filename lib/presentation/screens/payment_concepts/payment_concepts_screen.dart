@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PaymentConceptsScreen extends StatelessWidget {
+  static const String name = 'paymen_concepts_screen';
+
   const PaymentConceptsScreen({super.key});
 
   @override

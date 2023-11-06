@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
+  static const String name = 'change_password_screen';
+
   const ChangePasswordScreen({super.key});
 
   @override

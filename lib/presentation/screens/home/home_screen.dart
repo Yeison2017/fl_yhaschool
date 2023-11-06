@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const String name = 'home_screen';
+
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: Padding(
-        //   padding: const EdgeInsets.all(4.0),
-        //   child: IconButton({Icon: ''}),
-        // ),
+        leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.menu_outlined, color: Colors.black)),
         title: const Text('YHA School'),
       ),
       body: const _HomeView(),
