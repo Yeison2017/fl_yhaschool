@@ -1,6 +1,6 @@
 import 'package:fl_yhaschool/config/menu/menu_items.dart';
-import 'package:fl_yhaschool/presentation/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -54,7 +54,8 @@ class _CustomListTile extends StatelessWidget {
       onTap: () {
         // Navigator.of(context).push(
         //     MaterialPageRoute(builder: (context) => const ProfileScreen()));
-        Navigator.pushNamed(context, menuItem.link);
+        // Navigator.pushNamed(context, menuItem.link);
+        context.push(menuItem.link);
       },
     );
   }
