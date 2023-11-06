@@ -1,5 +1,7 @@
+import 'package:fl_yhaschool/presentation/providers/payments_by_date_provider.dart';
 import 'package:fl_yhaschool/presentation/widgets/cards/card_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PaymentsScreen extends StatelessWidget {
   const PaymentsScreen({super.key});
@@ -8,18 +10,22 @@ class PaymentsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: IconButton(icon: const Icon(Icons.home)),
+        leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.menu_outlined, color: Colors.black)),
         title: const Text('YHA School'),
         centerTitle: true,
       ),
-      body: _HomeView(),
+      body: _PaymentsView(),
     );
   }
 }
 
-class _HomeView extends StatelessWidget {
+class _PaymentsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final paymentsByDateProvider = context.watch<PaymentsByDateProvider>();
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -33,9 +39,12 @@ class _HomeView extends StatelessWidget {
                 )),
             Expanded(
                 child: ListView.builder(
-                    itemCount: 20,
+                    itemCount: paymentsByDateProvider.paymentsByDateList.length,
                     itemBuilder: (context, index) {
-                      return const CardLayout();
+                      final paymentByDate =
+                          paymentsByDateProvider.paymentsByDateList[index];
+
+                      return CardLayout(data: paymentByDate);
                     })),
             const Row(
               children: [

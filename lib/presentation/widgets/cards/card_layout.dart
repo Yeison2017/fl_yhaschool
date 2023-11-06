@@ -1,11 +1,12 @@
+import 'package:fl_yhaschool/domain/entities/payments_by_date.dart';
 import 'package:flutter/material.dart';
 
 class CardLayout extends StatelessWidget {
-  const CardLayout({super.key});
+  final PaymentsByDate data;
+  const CardLayout({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
     final size = MediaQuery.of(context).size;
 
     return Column(
@@ -16,37 +17,37 @@ class CardLayout extends StatelessWidget {
               color: const Color(0xffeeeeee),
               borderRadius: BorderRadius.circular(8)),
           padding: const EdgeInsets.all(8),
-          child: const Column(children: [
+          child: Column(children: [
             Text(
-              'Sábado, 19 de febrero de 2023',
+              data.date,
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: Column(
                     children: [
-                      Text('Total de pagos'),
-                      Text('86'),
+                      const Text('Total de pagos'),
+                      Text(data.totalPayments.toString()),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: Column(
                     children: [
-                      Text('Pagos sin imprimir'),
-                      Text('12'),
+                      const Text('Pagos sin imprimir'),
+                      Text(data.paymentsForPrinting.toString()),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: Column(
                     children: [
-                      Text('Valor total'),
-                      Text('1.240.000'),
+                      const Text('Valor total'),
+                      Text(data.totalValue.toString()),
                     ],
                   ),
                 ),
